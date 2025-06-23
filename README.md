@@ -130,6 +130,7 @@ python manage.py runserver
    ```bash
     rm -rf portfolio/
     git clone https://github.com/ssshiponu/portfolio
+    cd portfolio
    ```
    ```bash
    ./setup.sh

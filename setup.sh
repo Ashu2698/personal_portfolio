@@ -1,4 +1,3 @@
-cd portfolio
 mkvirtualenv portfolio-venv --python=python3.12
 pip install -r requirements.txt
 python manage.py collectstatic
