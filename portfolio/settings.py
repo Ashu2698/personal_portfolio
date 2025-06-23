@@ -1,8 +1,10 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -13,7 +15,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 debug = os.getenv('DEBUG')
 
-DEBUG = True if debug == None else bool(debug)
+DEBUG = True if debug == 'True' else False
 
 ALLOWED_HOSTS = ['*.pythonanywhere.com', '127.0.0.1']
 

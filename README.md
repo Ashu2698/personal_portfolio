@@ -118,13 +118,14 @@ Create a free account at [pythonanywhere.com](https://pythonanywhere.com).
 - **Local Installation**: Zip your project folder (exclude `venv` and unnecessary files) and upload
 - **Direct Deployment**: Skip to Step 2
 
-### Step 2: Set Up Virtual Environment
+### Step 2: Set Up Virtual Environment and Codebase
 
 1. Navigate to the **Consoles** tab and start a **Bash console**
 
 2. **For Direct Deployment** - Clone the repository:
    ```bash
    git clone https://github.com/ssshiponu/portfolio
+   cd portfolio
    ```
 
 3. **Create and configure virtual environment**:
@@ -133,10 +134,15 @@ Create a free account at [pythonanywhere.com](https://pythonanywhere.com).
    pip install -r requirements.txt
    ```
 
+4. **Step 6: Collect Static Files**
+    ```bash
+    python manage.py collectstatic
+    ```
+
 ### Step 3: Configure Web App
 
-Navigate to the **Web** tab and configure:
-
+Navigate to the **Web** tab:
+- First create an web app
 - **Source code**: `/home/yourusername/portfolio` (where `manage.py` is located)
 - **Virtualenv**: `/home/yourusername/.virtualenvs/portfolio-venv`
 - **WSGI configuration**: Edit the WSGI file with:
@@ -147,6 +153,9 @@ Navigate to the **Web** tab and configure:
       sys.path.append(path)
   from portfolio.wsgi import application
   ```
+- **static and media url**:
+    Set `/home/yourusername/portfolio/static`, and `/home/yourusername/portfolio/media` in statc and media url
+    
 
 ### Step 4: Set Environment Variables
 In the **Web** tab, add your `SECRET_KEY`, `DEBUG` as an environment variable.
@@ -160,11 +169,6 @@ ALLOWED_HOSTS = ['your-username.pythonanywhere.com']
 
 # Add trusted CSRF origin
 CSRF_TRUSTED_ORIGINS = ['https://your-username.pythonanywhere.com']
-```
-
-### Step 6: Collect Static Files
-```bash
-python manage.py collectstatic
 ```
 
 ### Step 7: Deploy
