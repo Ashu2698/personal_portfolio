@@ -144,8 +144,8 @@ export SECRET_KEY=your_generated_secret_key_here
 **Option 2: .env File (Recommended)**
 Create `.env` in project root:
 ```env
-SECRET_KEY=your_generated_secret_key_here
-DEBUG=True
+SECRET_KEY='your_generated_secret_key_here'
+DEBUG='True'
 ```
 
 ### 5. Prepare Static Files
@@ -163,63 +163,10 @@ Visit `http://127.0.0.1:8000` to view your site.
 ---
 
 
-
-## 🎨 Customization Guide
-
-### Template Structure
-```
-templates/
-├── base.html              # Main layout
-├── index.html            # Homepage
-├── components/           # Reusable components
-└── admin/               # Admin customizations
-```
-
-### Static Files Organization
-```
-static/
-├── css/                 # Stylesheets
-├── js/                  # JavaScript files
-├── images/              # Site images
-└── vendor/              # Third-party libraries
-```
-
-### Key Customization Points
-
-**Colors & Themes:**
-- Edit `static/css/main.css` for color schemes
-- Modify CSS variables for consistent theming
-
-**Layout Changes:**
-- Update `templates/base.html` for site-wide changes
-- Modify individual templates for page-specific layouts
-
-**Functionality:**
-- Add new models in `core/models.py`
-- Create views in `core/views.py`
-- Define URLs in `core/urls.py`
-
----
-
-## 🔧 Advanced Configuration
-
-### Database Migration
-If you modify models:
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-
-### Creating Superuser
-```bash
-python manage.py createsuperuser
-```
-
 ### Production Settings
 For production deployment:
 1. Set `DEBUG=False` in environment
 2. Configure `ALLOWED_HOSTS`
-3. Use PostgreSQL for better performance
 4. Enable HTTPS
 
 ---
