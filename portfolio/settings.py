@@ -14,8 +14,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*.pythonanywhere.com', '127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS = ['https://*.pythonanywhere.com']
 
 # Application definition
 
@@ -107,11 +108,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = BASE_DIR / 'static'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# STATICFILES_DIRS = [ BASE_DIR / "static", ]
 
 MEDIA_URL = 'media/'
 
