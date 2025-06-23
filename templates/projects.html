@@ -1,0 +1,34 @@
+<section id="projects" class="py-24 px-6 lg:px-16 bg-zinc-950">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="section-heading">Projects</h2>
+        <div class="grid md:grid-cols-2 gap-8 mt-12 fade-in" style="animation-delay: 0.3s;">
+            {% for project in projects %}
+            <div class="bg-black border border-zinc-800 rounded-sm overflow-hidden hover-card group">
+                <div class="h-56 md:h-80 lg:h-80 bg-zinc-800 relative overflow-hidden">
+                    <img src="{{project.image.url}}" loading="lazy" alt="{{project.title}}" class="w-full">
+                    <div
+                        class="absolute inset-0 hidden group-hover:flex transition-all items-center justify-center"
+                        style="transition-delay: 0.3s;">
+                        <div class="backdrop-blur-sm bg-black/70 absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="transition-delay: 0.3s;"></div>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 z-10">
+                            <a href="{{project.url}}" target="_blank"
+                                class="bg-white text-black py-2 px-4 rounded-sm text-sm font-medium">Live Demo</a>
+                            <a href="{{project.github}}" target="_blank"
+                                class="bg-transparent border border-white text-gray-100 py-2 px-4 rounded-sm text-sm font-medium">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 font-mono">{{project.title}}</h3>
+                    <p class="text-gray-400 mb-4">{{project.description}}</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        {% for skill in project.skill.all %}
+                        <span class="tech-tag">{{skill.title}}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
