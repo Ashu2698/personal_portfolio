@@ -17,9 +17,9 @@ debug = os.getenv('DEBUG')
 
 DEBUG = True if debug == 'True' else False
 
-ALLOWED_HOSTS = ['*.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = ['https://*.pythonanywhere.com']
+CSRF_TRUSTED_ORIGINS = []
 
 # Application definition
 
@@ -123,5 +123,4 @@ MEDIA_ROOT =  os.path.join(BASE_DIR / "media")
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-ALLOWED_HOSTS = ['shipon.pythonanywhere.com']
-CSRF_TRUSTED_ORIGINS = ['https://shipon.pythonanywhere.com']
+

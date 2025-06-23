@@ -256,6 +256,21 @@ class SocialLinkAdmin(admin.ModelAdmin):
         return '✅' if obj.icon else '❌'
     has_icon.short_description = 'Icon'
 
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'message_preview')
+    search_fields = ('name', 'email')
+    fields = ('name', 'email', 'message')
+    readonly_fields = ('name', 'email', 'message')
+    
+    def message_preview(self, obj):
+        if obj.message:
+            return obj.message[:50] + '...' if len(obj.message) > 50 else obj.message
+        return '-'
+    message_preview.short_description = 'Message Preview'
+
+admin.site.register(Sections)
+
 # Customize admin site headers
 admin.site.site_header = "Portfolio Admin Dashboard"
 admin.site.site_title = "Portfolio Admin"

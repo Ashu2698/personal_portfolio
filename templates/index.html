@@ -22,11 +22,11 @@
     {% include "sidebar.html" %}
     <main class="lg:ml-20">
         {% include "hero.html" %}
-        {% include "about.html" %}
-        {% include "projects.html" %}
-        {% include "skills.html" %}
-        {% include "process.html" %}
-        {% include "contact.html" %}
+        {% if sections.about_me %}{% include "about.html" %}{% endif %}
+        {% if sections.projects %}{% include "projects.html" %}{% endif %}
+        {% if sections.skills %}{% include "skills.html" %}{% endif %}
+        {% if sections.process %}{% include "process.html" %}{% endif %}
+        {% if sections.get_in_touch %}{% include "contact.html" %}{% endif %}
         {% include "footer.html" %}
     </main>
     <script src="{% static "script.js" %}"></script>

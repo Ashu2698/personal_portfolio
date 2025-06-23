@@ -111,3 +111,24 @@ class SocialLink(models.Model):
     
     def __str__(self):
         return f'{self.title}'
+    
+class Sections(models.Model):
+    '''visible or hide section'''
+    about_me = models.BooleanField(default=True)
+    projects = models.BooleanField(default=True)
+    skills = models.BooleanField(default=True)
+    process = models.BooleanField(default=True)
+    get_in_touch = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = 'Sections'
+        verbose_name_plural = 'Sections'
+
+class Message(models.Model):
+    name = models.CharField(max_length=255, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    message = models.TextField(null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.name}'
