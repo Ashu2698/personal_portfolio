@@ -111,8 +111,6 @@ python manage.py runserver
 
 ## 🌐 PythonAnywhere Deployment
 
-### Prerequisites
-Create a free account at [pythonanywhere.com](https://pythonanywhere.com).
 
 ### Step 1: Upload Your Project
 - **Local Installation**: Zip your project folder (exclude `venv` and unnecessary files) and upload
@@ -120,57 +118,22 @@ Create a free account at [pythonanywhere.com](https://pythonanywhere.com).
 
 ### Step 2: Set Up Virtual Environment and Codebase
 
-1. Navigate to the **Consoles** tab and start a **Bash console**
+1. Create a free account at [pythonanywhere.com](https://pythonanywhere.com).
 
-2. **For Direct Deployment** - Clone the repository:
+2. Navigate to the **Web** tab and create a new **Web app**. Select `Django`, `python3.12` and name it `portfolio`.
+
+3. Navigate to the **Files** tab and remode the `portfolio/` folder.
+
+4. Now navigate to the **Consoles** tab and start a **Bash console**
+
+5. copy, pest this script and hit enter
    ```bash
-   git clone https://github.com/ssshiponu/portfolio
-   cd portfolio
+    rm -rf portfolio/
+    git clone https://github.com/ssshiponu/portfolio
    ```
-
-3. **Create and configure virtual environment**:
    ```bash
-   mkvirtualenv portfolio-venv --python=python3.12
-   pip install -r requirements.txt
+   ./setup.sh
    ```
-
-4. **Step 6: Collect Static Files**
-    ```bash
-    python manage.py collectstatic
-    ```
-
-### Step 3: Configure Web App
-
-Navigate to the **Web** tab:
-- First create an web app
-- **Source code**: `/home/yourusername/portfolio` (where `manage.py` is located)
-- **Virtualenv**: `/home/yourusername/.virtualenvs/portfolio-venv`
-- **WSGI configuration**: Edit the WSGI file with:
-  ```python
-  import sys
-  path = '/home/yourusername/portfolio'
-  if path not in sys.path:
-      sys.path.append(path)
-  from portfolio.wsgi import application
-  ```
-- **static and media url**:
-    Set `/home/yourusername/portfolio/static`, and `/home/yourusername/portfolio/media` in statc and media url
-    
-
-### Step 4: Set Environment Variables
-In the **Web** tab, add your `SECRET_KEY`, `DEBUG` as an environment variable.
-
-### Step 5: Configure Production Settings
-
-Edit `portfolio/settings.py`:
-```python
-# Add your PythonAnywhere domain
-ALLOWED_HOSTS = ['your-username.pythonanywhere.com']
-
-# Add trusted CSRF origin
-CSRF_TRUSTED_ORIGINS = ['https://your-username.pythonanywhere.com']
-```
-
 ### Step 7: Deploy
 Click **Reload** in the Web tab to deploy your application.
 
