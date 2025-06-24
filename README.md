@@ -124,7 +124,14 @@ python -c "from django.core.management.utils import get_random_secret_key; print
 
 #### Set Environment Variables
 
-**Option 1: Environment Variables**
+**Option 1: .env File (Easy Recommended)**
+Create `.env` in project root add this code:
+```env
+SECRET_KEY='your_generated_secret_key_here'
+DEBUG='True'
+```
+
+**Option 2: Environment Variables**
 
 Windows (CMD):
 ```cmd
@@ -139,13 +146,6 @@ $env:SECRET_KEY="your_generated_secret_key_here"
 macOS/Linux:
 ```bash
 export SECRET_KEY=your_generated_secret_key_here
-```
-
-**Option 2: .env File (Recommended)**
-Create `.env` in project root:
-```env
-SECRET_KEY='your_generated_secret_key_here'
-DEBUG='True'
 ```
 
 ### 5. Prepare Static Files

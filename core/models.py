@@ -4,7 +4,7 @@ class MetaData(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     keywords = models.TextField(null=True, blank=True)
-    svg_logo = models.TextField(null=True, blank=True)
+    logo_charecter = models.TextField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
     
     def __str__(self):
@@ -36,17 +36,21 @@ class About(models.Model):
         super(About, self).save(*args, **kwargs)
     
     def __str__(self):
-        return f'{self.about}'
+        return f'{self.about[:50]}...'
     
 class Project(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    url = models.URLField(null=True, blank=True)
-    github = models.URLField(default='https://github.com', null=True, blank=True)
+    demo_url = models.URLField(null=True, blank=True)
+    source_url = models.URLField(default='https://github.com/', null=True, blank=True)
     skill = models.ManyToManyField('Skill', blank=True)
-    is_major = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+    ordering_index = models.IntegerField(null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    class Meta:
+        ordering = ['ordering_index', '-created']
     
     def __str__(self):
         return f'{self.title}'
