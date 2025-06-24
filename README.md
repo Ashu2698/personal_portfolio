@@ -64,7 +64,7 @@ Set up locally for design customization and advanced features.
 1. Visit `username.pythonanywhere.com/admin`
 2. Login with default credentials:
    - **Username**: `admin`
-   - **Password**: `password`
+   - **Password**: `shipondjango`
 3. **⚠️ Important**: Change your password immediately after first login
 
 ---
